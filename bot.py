@@ -162,7 +162,7 @@ async def daily_checker():
     conn.close()
 
     for uid, day, hour in users:
-        if now.hour == hour and now.minute == 0 and day < 42:
+        if day < 42:
             msg_index = day + 2  # День 0 → индекс 2 → сообщение 11
             if msg_index < len(COURSE_MESSAGE_IDS):
                 try:
