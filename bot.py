@@ -8,8 +8,14 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 import logging
 import pytz
+import os
+from dotenv import load_dotenv
 
-BOT_TOKEN = " 8771258586:AAGhr-XQVc78MM7bxOoj9Rp-v184bWZmA2k"
+# Загружаем переменные окружения
+load_dotenv()
+
+# Получаем токен из переменных окружения
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = -1003054634333
 
 COURSE_MESSAGE_IDS = [
@@ -78,7 +84,7 @@ def get_users():
     return data
 
 # ---------------- BOT ----------------
-bot = Bot(token= "8771258586:AAGhr-XQVc78MM7bxOoj9Rp-v184bWZmA2k")
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 scheduler = AsyncIOScheduler()
 
