@@ -30,7 +30,7 @@ TIMEZONES = {
     "New_York": pytz.timezone("America/New_York"),
 }
 
-DB_NAME = "users.db"
+DB_NAME = os.path.join(os.getenv("RAILWAY_VOLUME_MOUNT_PATH", "."), "users.db")
 
 # ---------------- DB ----------------
 def init_db():
